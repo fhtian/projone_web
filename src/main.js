@@ -7,6 +7,11 @@ import VueRouter from 'vue-router'
 //安装路由
 Vue.use(VueRouter)
 
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 
 import { Header } from 'mint-ui';
 import './lib/mui/css/mui.min.css'
