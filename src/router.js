@@ -8,11 +8,12 @@ import Self from './components/tabbar/Self.vue';
 // 3. 创建路由对象
 var router = new VueRouter({
   routes: [
+    {path:'/',component:Home},
     {path:'/home',component:Home},
     {path:'/msg',component:Msg},
     {path:'/self',component:Self},
   ],
-  linkActiveClass:'mui-active'
+  linkActiveClass:'mui-active'// 覆盖默认的路由高亮的类，默认的类叫做 router-link-active
 })
 
 // 把路由对象暴露出去
