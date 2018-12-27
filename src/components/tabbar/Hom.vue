@@ -9,22 +9,44 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-home"></span>
 		                    <div class="mui-media-body">Home</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<router-link to="/home/article">
 		                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-		                    <div class="mui-media-body">Email</div></a></li>
+		                    <div class="mui-media-body">美文赏析</div>
+						</router-link>
+					</li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-chatbubble"></span>
-		                    <div class="mui-media-body">Chat</div></a></li>
+		                    <div class="mui-media-body">美图赏析</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-location"></span>
-		                    <div class="mui-media-body">location</div></a></li>
+		                    <div class="mui-media-body">生活感悟</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-search"></span>
-		                    <div class="mui-media-body">Search</div></a></li>
+		                    <div class="mui-media-body">搜索</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <span class="mui-icon mui-icon-phone"></span>
 		                    <div class="mui-media-body">Phone</div></a></li>
 		        </ul> 
+				<br>
+				<div class="title">
+				博主推荐
+				</div>
+				<br>
+			 <ul class="mui-table-view" >
+				<li class="mui-table-view-cell mui-media" v-for="article in articles" :key="article.id"  >
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-left" src="https://tvax2.sinaimg.cn/crop.0.15.750.750.180/8128de94ly8ff8j63qrkfj20ku0lpmxv.jpg">
+						<div class="mui-media-body">
+							<h1>{{article.title}}</h1>
+							<p class='mui-ellipsis'>
+								<span>{{article.content}}</span>
+                            </p>
+						</div>
+					</a>
+				</li>
+
+			</ul>
     </div>
 </template>
 <script>
@@ -36,11 +58,26 @@ export default {
                 {img:"../../src/lib/img/1.jpg"},
                 {img:"../../src/lib/img/2.jpg"},
                 {img:"../../src/lib/img/3.jpg"}
-            ]
+			],
+			 articles:[]
 
         }
 
-    }
+	},
+	 created(){
+        this.getarticles();
+    },
+	methods:{
+		fanstoplist(){
+			
+		},
+		 getarticles(){
+            this.$http.get('pagination/lunyu/1/10').then(result =>{
+                this.articles = result.body;
+                console.log(this.articles);
+            })
+        }
+	}
     
 }
 
@@ -56,5 +93,16 @@ export default {
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
 	border:0
+}
+.mui-table-view{
+	li{
+		h1{
+			font-size: 14px;
+		}
+		.mui-ellipsis{
+			font-size: 	12px;
+			color: #226aff;
+		}
+	}
 }
 </style>
