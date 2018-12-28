@@ -1,6 +1,10 @@
 <template>
 <div>
-    <h3>{{articleInfo.title}} </h3>{{articleInfo.content}}
+    <h3>{{articleInfo.title}} </h3>
+    
+    <span>
+        {{articleInfo.content}}
+    </span>
 </div>
 
 </template>

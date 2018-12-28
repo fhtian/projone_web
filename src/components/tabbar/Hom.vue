@@ -6,27 +6,24 @@
             </mt-swipe-item>
         </mt-swipe>
          <ul class="mui-table-view mui-grid-view mui-grid-9">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-home"></span>
-		                    <div class="mui-media-body">Home</div></a></li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/article">
-		                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+		                    <span class="mui-icon mui-icon-email"></span>
 		                    <div class="mui-media-body">美文赏析</div>
 						</router-link>
 					</li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<router-link to="/home/pictures">
 		                    <span class="mui-icon mui-icon-chatbubble"></span>
-		                    <div class="mui-media-body">美图赏析</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-location"></span>
-		                    <div class="mui-media-body">生活感悟</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <div class="mui-media-body">美图赏析</div>
+						</router-link>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+						<router-link to="/home/search">
 		                    <span class="mui-icon mui-icon-search"></span>
-		                    <div class="mui-media-body">搜索</div></a></li>
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <span class="mui-icon mui-icon-phone"></span>
-		                    <div class="mui-media-body">Phone</div></a></li>
+		                    <div class="mui-media-body">搜索</div>
+						</router-link>
+					</li>
 		        </ul> 
 				<br>
 				<div class="title">
