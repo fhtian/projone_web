@@ -1,7 +1,12 @@
 <template>
   <div class='app-container'>
    
-    <mt-header fixed title="七彩祥云工作室"></mt-header>
+    <mt-header fixed title="七彩祥云工作室">
+			<router-link to="/" slot="left">
+				<mt-button icon="back">返回</mt-button>
+				</router-link>
+			<!-- <mt-button icon="more" slot="right"></mt-button> -->
+		</mt-header>
     <!-- 顶部-->
 
 

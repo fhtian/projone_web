@@ -10,6 +10,7 @@ Vue.use(VueRouter);
 import Vueresource from 'vue-resource';
 
 Vue.use(Vueresource);
+
 //设置请求根路径
 // Vue.http.options.root='http://www.tcjfh.cn';
 Vue.http.options.root='http://localhost';
@@ -23,8 +24,17 @@ import { Header } from 'mint-ui';
 import './lib/mui/css/mui.min.css';
 
 import { Lazyload } from 'mint-ui';
-
+import { Search } from 'mint-ui';
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
+Vue.component(Search.name, Search);
 Vue.use(Lazyload);
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 
 //导入自己的router.js
 import router from './router.js'

@@ -31,7 +31,7 @@ export default {
     },
     methods:{
         getarticles(){
-            this.$http.get('pagination/lunyu/1/10').then(result =>{
+            this.$http.get('pagination/shijing/1/10').then(result =>{
                 this.articles = result.body;
                 console.log(this.articles);
             })

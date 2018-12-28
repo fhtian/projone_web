@@ -8,7 +8,7 @@
          <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/article">
-		                    <span class="mui-icon mui-icon-email"></span>
+		                    <span class="mui-icon mui-icon-chatbubble"></span>
 		                    <div class="mui-media-body">美文赏析</div>
 						</router-link>
 					</li>
@@ -32,7 +32,7 @@
 				<br>
 			 <ul class="mui-table-view" >
 				<li class="mui-table-view-cell mui-media" v-for="article in articles" :key="article.id"  >
-					<a href="javascript:;">
+					<router-link :to="'/article/' + article.articleSort +'/'+ article.id">
 						<img class="mui-media-object mui-pull-left" src="https://tvax2.sinaimg.cn/crop.0.15.750.750.180/8128de94ly8ff8j63qrkfj20ku0lpmxv.jpg">
 						<div class="mui-media-body">
 							<h1>{{article.title}}</h1>
@@ -40,7 +40,7 @@
 								<span>{{article.content}}</span>
                             </p>
 						</div>
-					</a>
+					</router-link> 
 				</li>
 
 			</ul>
@@ -52,9 +52,9 @@ export default {
      data(){
         return {
             imags:[
-                {img:"../../src/lib/img/1.jpg"},
-                {img:"../../src/lib/img/2.jpg"},
-                {img:"../../src/lib/img/3.jpg"}
+                {img:"http://localhost/lib/imags/1.jpg"},
+                {img:"http://localhost/lib/imags/2.jpg"},
+                {img:"http://localhost/lib/imags/3.jpg"}
 			],
 			 articles:[]
 
