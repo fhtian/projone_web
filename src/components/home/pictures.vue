@@ -11,24 +11,24 @@ export default {
     data(){
         return {
             imags:[
-				{img:"http://localhost/lib/imags/20181228201351.jpg"},
-                {img:"http://localhost/lib/imags/20181228201426.jpg"},
-                {img:"http://localhost/lib/imags/20181228201435.jpg"},
-                {img:"http://localhost/lib/imags/20181228201439.jpg"},
-                {img:"http://localhost/lib/imags/20181228201444.jpg"},
-                {img:"http://localhost/lib/imags/20181228201449.jpg"},
-                {img:"http://localhost/lib/imags/20181228201454.jpg"},
-                {img:"http://localhost/lib/imags/20181228201500.jpg"},
-                {img:"http://localhost/lib/imags/20181228201504.jpg"},
-                {img:"http://localhost/lib/imags/20181228201508.jpg"},
-                {img:"http://localhost/lib/imags/20181228201512.jpg"},
-                {img:"http://localhost/lib/imags/20181228201517.jpg"},
-                {img:"http://localhost/lib/imags/20181228201521.jpg"},
-                {img:"http://localhost/lib/imags/20181228201525.jpg"},
-                {img:"http://localhost/lib/imags/20181228201530.jpg"},
-                {img:"http://localhost/lib/imags/20181228201534.jpg"},
-                {img:"http://localhost/lib/imags/20181228201538.jpg"},
-                {img:"http://localhost/lib/imags/20181228201541.jpg"}
+				{img:this.global_.prefix_url+"lib/imags/20181228201351.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201426.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201435.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201439.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201444.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201449.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201454.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201500.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201504.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201508.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201512.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201517.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201521.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201525.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201530.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201534.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201538.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/20181228201541.jpg"}
             ]
 
         }

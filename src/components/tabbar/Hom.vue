@@ -52,9 +52,9 @@ export default {
      data(){
         return {
             imags:[
-                {img:"http://localhost/lib/imags/1.jpg"},
-                {img:"http://localhost/lib/imags/2.jpg"},
-                {img:"http://localhost/lib/imags/3.jpg"}
+                {img:this.global_.prefix_url+"lib/imags/1.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/2.jpg"},
+                {img:this.global_.prefix_url+"lib/imags/3.jpg"}
 			],
 			 articles:[]
 

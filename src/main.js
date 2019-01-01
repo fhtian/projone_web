@@ -12,8 +12,9 @@ import Vueresource from 'vue-resource';
 Vue.use(Vueresource);
 
 //设置请求根路径
-// Vue.http.options.root='http://www.tcjfh.cn';
-Vue.http.options.root='http://localhost';
+// Vue.http.options.root='https://www.tcjfh.cn';
+// Vue.http.options.root='http://localhost';
+Vue.http.options.root='https://localhost';
 import { Swipe, SwipeItem } from 'mint-ui';
 
 Vue.component(Swipe.name, Swipe);
@@ -38,7 +39,8 @@ Vue.use(ElementUI);
 
 //导入自己的router.js
 import router from './router.js'
-
+import global_ from './components/Global.vue'
+Vue.prototype.global_ = global_;
 
 Vue.component(Header.name, Header);
 
