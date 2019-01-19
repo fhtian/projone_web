@@ -10,11 +10,24 @@ Vue.use(VueRouter);
 import Vueresource from 'vue-resource';
 
 Vue.use(Vueresource);
+Vue.http.options.emulateJSON = true;//解决post请求变成option的请求问题
+// Vue.http.options.headers = { 
+//     "Content-Type": "application/json"
+// }
+
+import Axios from 'axios'
+// import VueAxios from 'vue-axios'
+// import Qs from 'qs';
+// Vue.use(VueAxios, Axios)
+// axios.defaults.baseURL="https://localhost:40000/"
+Vue.prototype.Axios = Axios;    //全局注册，使用方法为:this.$axios
+// Vue.prototype.qs = Qs;           //全局注册，使用方法为:this.qs
+
 
 //设置请求根路径
 // Vue.http.options.root='https://www.tcjfh.cn';
-// Vue.http.options.root='http://localhost';
-Vue.http.options.root='https://localhost';
+// Vue.http.options.root='http://localhost:8080';
+Vue.http.options.root='https://localhost:40000';
 import { Swipe, SwipeItem } from 'mint-ui';
 
 Vue.component(Swipe.name, Swipe);

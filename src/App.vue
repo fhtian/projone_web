@@ -1,12 +1,23 @@
 <template>
-  <div class='app-container'>
+  <div>
+			<el-row>
+  			<el-col :span="24">
+					<div class="header">
+						<span class="title">
+								七彩祥云
+						</span>
+						<span class="back el-icon-arrow-left">返回</span>
+					</div>
+				</el-col>
+			</el-row>
+
    
-    <mt-header fixed title="七彩祥云工作室">
+    <!-- <mt-header fixed title="七彩祥云">
 			<router-link to="/" slot="left">
 				<mt-button icon="back">返回</mt-button>
 				</router-link>
-			<!-- <mt-button icon="more" slot="right"></mt-button> -->
-		</mt-header>
+			<mt-button icon="more" slot="right"></mt-button>
+		</mt-header> -->
     <!-- 顶部-->
 
 
@@ -41,24 +52,22 @@
 
 
 <style lang="scss" scoped>
-  .app-container{
-     padding-top: 40px;
-		 overflow-x: hidden;
-  }
-	
-.v-enter {
-  opacity: 0;
-  transform: translateX(100%);
+.header{
+	height: 40px;
+	background-color: #f10215;
+	margin-bottom: 10px;
+	position: relative;
 }
-
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-  position: absolute;
+.title{
+	color:white;
+	text-align: center;
+	position: absolute;
+	line-height: 40px;
+	left:42%;
 }
-
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.5s ease;
+.back{
+	color: white;
+	line-height: 40px;
+	padding-left:10px;
 }
 </style>

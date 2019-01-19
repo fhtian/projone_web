@@ -1,10 +1,10 @@
 <template>
     <div>
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in imags" :key="item.img">
-                <img :src="item.img" width="100%">
-            </mt-swipe-item>
-        </mt-swipe>
+		<!-- <el-input
+			placeholder="淘宝商品名称"
+			prefix-icon="el-icon-search"
+			class="search">
+  		</el-input>
          <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/article">
@@ -27,10 +27,44 @@
 		        </ul> 
 				<br>
 				<div class="title">
-				博主推荐
+				爆款推荐
 				</div>
-				<br>
-			 <ul class="mui-table-view" >
+				<br> -->
+
+			<div  v-for="item in optimus_material_" :key="item.pict_url" class="flex-container">
+					<a><img :src="item.pict_url" class="img"></a>
+			</div>
+
+
+
+
+<!-- 
+<div style="">
+				<el-row v-for="item in optimus_material_" :key="item.pict_url" >
+					<el-col :span="12">
+						<div class="grid-content bg-purple">
+							<a><img :src="item.pict_url" class="img"></a>
+						</div>
+					</el-col>
+				</el-row>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			 <!-- <ul class="mui-table-view" >
 				<li class="mui-table-view-cell mui-media" v-for="article in articles" :key="article.id"  >
 					<router-link :to="'/article/' + article.articleSort +'/'+ article.id">
 						<img class="mui-media-object mui-pull-left" src="https://tvax2.sinaimg.cn/crop.0.15.750.750.180/8128de94ly8ff8j63qrkfj20ku0lpmxv.jpg">
@@ -43,7 +77,7 @@
 					</router-link> 
 				</li>
 
-			</ul>
+			</ul> -->
     </div>
 </template>
 <script>
@@ -56,13 +90,15 @@ export default {
                 {img:this.global_.prefix_url+"lib/imags/2.jpg"},
                 {img:this.global_.prefix_url+"lib/imags/3.jpg"}
 			],
-			 articles:[]
+			 articles:[],
+			 optimus_material_:[]
 
         }
 
 	},
 	 created(){
-        this.getarticles();
+		 		this.getarticles();
+        this.optimus_material();
     },
 	methods:{
 		fanstoplist(){
@@ -71,22 +107,46 @@ export default {
 		 getarticles(){
             this.$http.get('pagination/lunyu/1/10').then(result =>{
                 this.articles = result.body;
-                console.log(this.articles);
             })
-        }
+		},
+		optimus_material(){
+			var data = {
+				"material_id": 0,
+				"page_no": 0,
+				"page_size": 10
+				};
+			var url = 'tbk/taobao_tbk_dg_optimus_material';
+			this.$http.post(url,JSON.stringify(data)).then(result =>{
+								this.optimus_material_ = result.body;
+                console.log(this.optimus_material_);
+						});
+
+		}
 	}
     
 }
 
 </script>
-<style lang="scss" scoped>
 
-.mint-swipe{
-    height: 200px;
-    background: blue;
+<style lang="scss" >
+.flex-container{
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	padding:0 6px 0 6px;
 }
+
+.img{
+    width: 174px
+}
+.search .el-input__inner{
+	margin-bottom:0px; 
+}
+
+
 .mui-grid-view.mui-grid-9{
-	background: white
+	background: white;
+	border-top:0;
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
 	border:0
@@ -102,4 +162,27 @@ export default {
 		}
 	}
 }
+.mint-header {
+	background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+    .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
 </style>
