@@ -1,6 +1,6 @@
 <template>
     <div>
-		<!-- <el-input
+		<el-input
 			placeholder="淘宝商品名称"
 			prefix-icon="el-icon-search"
 			class="search">
@@ -8,28 +8,34 @@
          <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/article">
-		                    <span class="mui-icon mui-icon-chatbubble"></span>
-		                    <div class="mui-media-body">美文赏析</div>
+		                    <img src="../../img/halfPrice.png">
+		                    <div class="mui-media-body">促销</div>
 						</router-link>
 					</li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/pictures">
-		                    <span class="mui-icon mui-icon-chatbubble"></span>
-		                    <div class="mui-media-body">美图赏析</div>
+		                    <img src="../../img/99.png">
+		                    <div class="mui-media-body">超实惠</div>
 						</router-link>
 					</li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 						<router-link to="/home/search">
-		                    <span class="mui-icon mui-icon-search"></span>
-		                    <div class="mui-media-body">搜索</div>
+		                    <img src="../../img/money.png">
+		                    <div class="mui-media-body">爆款</div>
 						</router-link>
+					</li>
+					 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+							<router-link to="/home/search">
+		                    <img src="../../img/inventory.png">
+		                    <div class="mui-media-body">好货清单</div>
+							</router-link>
 					</li>
 		        </ul> 
 				<br>
 				<div class="title">
 				爆款推荐
 				</div>
-				<br> -->
+				<br>
 
 			<div  v-for="item in optimus_material_" :key="item.pict_url" class="flex-container">
 					<a><img :src="item.pict_url" class="img"></a>
@@ -147,6 +153,13 @@ export default {
 .mui-grid-view.mui-grid-9{
 	background: white;
 	border-top:0;
+	img{
+		width: 40px;
+		height: 40px;
+	}
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+    width: 25%;
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
 	border:0
