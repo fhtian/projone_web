@@ -1,26 +1,15 @@
 <template>
   <div>
-			<el-row>
-  			<el-col :span="24">
-					<div class="header">
-						<span class="title">
-								七彩祥云
-						</span>
-						<span class="back el-icon-arrow-left">返回</span>
-					</div>
-				</el-col>
-			</el-row>
-
-   
-    <!-- <mt-header fixed title="七彩祥云">
-			<router-link to="/" slot="left">
-				<mt-button icon="back">返回</mt-button>
-				</router-link>
-			<mt-button icon="more" slot="right"></mt-button>
-		</mt-header> -->
-    <!-- 顶部-->
-
-
+	<el-row>
+		<el-col :span="24">
+			<div class="header">
+				<span class="title">
+						七彩祥云
+				</span>
+				<a href="javascript:history.go(-1)" class="back el-icon-arrow-left">返回</a>
+			</div>
+		</el-col>
+	</el-row>
 
 
     <!-- 中间的 路由 router-view 区域 -->
@@ -64,10 +53,12 @@
 	position: absolute;
 	line-height: 40px;
 	left:42%;
+	font-size: 18px;
 }
 .back{
 	color: white;
 	line-height: 40px;
 	padding-left:10px;
+	font-size: 16px;
 }
 </style>

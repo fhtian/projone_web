@@ -1,13 +1,13 @@
 <template>
     <div>
        <ul class="mui-table-view" >
-				<li class="mui-table-view-cell mui-media" v-for="article in articles" :key="article.id"  >
-					<router-link :to="'/article/' + article.articleSort +'/'+ article.id">
-						<img class="mui-media-object mui-pull-left" src="https://tvax2.sinaimg.cn/crop.0.15.750.750.180/8128de94ly8ff8j63qrkfj20ku0lpmxv.jpg">
+				<li class="mui-table-view-cell mui-media" v-for="item in shoppinglist" :key="item.item_id"  >
+					<router-link to={{item.click_url}}>
+						<img class="mui-media-object mui-pull-left" src={{item.pict_url}}>
 						<div class="mui-media-body">
-							<h1>{{article.title}}</h1>
+							<h1>{{item.title}}</h1>
 							<p class='mui-ellipsis'>
-								<span>{{article.content}}</span>
+								<span>{{item.item_description}}</span>
                             </p>
 						</div>
 					</router-link> 
@@ -22,26 +22,36 @@
 export default {
       data(){
         return {
-            articles:[]
+            shoppinglist:[]
         }
 
     },
     created(){
-        this.getarticles();
+        this.datalist();
     },
     methods:{
-        getarticles(){
-            this.$http.get('pagination/shijing/1/10').then(result =>{
-                this.articles = result.body;
-                console.log(this.articles);
-            })
-        }
+        datalist(){
+             console.log('123456789');
+			var data = {
+				"material_id": 0,
+				"page_no": 0,
+				"page_size": 10
+				};
+			var url = 'tbk/taobao_tbk_dg_optimus_material';
+			this.$http.post(url,JSON.stringify(data)).then(result =>{
+								this.shoppinglist = result.body;
+                console.log(this.shoppinglist);
+						});
+
+		}
     }
 }
 </script>
 <style lang="scss" scoped>
 
 .mui-table-view{
+    width: 80px;
+    height: 100px;
 	li{
 		h1{
 			font-size: 14px;
