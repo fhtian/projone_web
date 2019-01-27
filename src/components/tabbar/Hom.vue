@@ -1,91 +1,61 @@
 <template>
-    <div>
-		<el-input
-			placeholder="淘宝商品名称"
-			prefix-icon="el-icon-search"
-			class="search">
-  		</el-input>
-		<span class="el-icon-search" ></span>
+    <div v-loading.fullscreen.lock='loading'  element-loading-text="拼命加载中">
+		<router-link to="/home/search">
+			<el-input
+				placeholder="输入淘宝商品名称领取优惠券"			
+				class="search">
+			</el-input>
+			<span class="el-icon-search" ></span>
+		</router-link>
+			
          <ul class="mui-table-view mui-grid-view mui-grid-9">
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<router-link to="/home/halfPrice">
-		                    <img src="../../img/halfPrice.png">
-		                    <div class="mui-media-body">促销</div>
+						<router-link to="/home/girlsSkirt">
+		                    <img src="../../img/girlsSkirt.png">
+		                    <div class="mui-media-body">精品女装</div>
 						</router-link>
 					</li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<router-link to="/home/pictures">
-		                    <img src="../../img/99.png">
-		                    <div class="mui-media-body">超实惠</div>
+						<router-link to="/home/computer">
+		                    <img src="../../img/computer.png">
+		                    <div class="mui-media-body">数码</div>
 						</router-link>
 					</li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-						<router-link to="/home/search">
-		                    <img src="../../img/money.png">
-		                    <div class="mui-media-body">爆款</div>
+						<router-link to="/home/makeup">
+		                    <img src="../../img/makeup.png">
+		                    <div class="mui-media-body">美妆个护</div>
 						</router-link>
 					</li>
 					 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-							<router-link to="/home/search">
-		                    <img src="../../img/inventory.png">
-		                    <div class="mui-media-body">好货清单</div>
+							<router-link to="/home/underwear">
+		                    <img src="../../img/underwear.png">
+		                    <div class="mui-media-body">精品内衣</div>
 							</router-link>
 					</li>
 		        </ul> 
-		<div class="title">爆款推荐</div>
-
-		<el-dialog  class="goodsHeader"
-  			title="好货疯抢"
-  			:visible.sync="dialogVisible"
-  			width="85%">
-			<span>长按框内>全部>复制>打开手机淘宝即可</span>
-  			<el-input  type="textarea" v-model="copyContent">{{copyContent}}</el-input>
-    		<span class="copyBtn"><el-button  type="success"  round @click="copyContent" >一键复制</el-button> </span>
-		</el-dialog>
-
-
-
-
- 		<ul class="mui-table-view mui-grid-view mui-grid-10">
-  			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-6">
-				<router-link to="/home/article">
-		            <img src="../../img/halfPrice.png">
-		            <div class="mui-media-body">促销</div>
-				</router-link>
-			</li>
-	 	</ul>
-
+		<el-button type="warning" icon="el-icon-star-off" circle>爆款推荐</el-button>
+		
+		<!-- @click="openDialog(item)"> -->
+		<!-- @click="global_.openDialog_(openDialog(item),self)"> -->
 		<div  class="flex-container">
 			<div v-for="item in optimus_material_" :key="item.pict_url" class="content" 
-			@click="openDialog(item)">
+			@click="global_.openDialog_('一键复制>打开淘宝，即可领取优惠券啦。。'+item.tbk_tpwd_create_response.data.model,self)">
 				<a><img :src="item.pict_url" class="img"></a>	
 				<el-tooltip :content="item.title" placement="top">
 					<span class="goodsTitle">{{item.title}}</span>
 				</el-tooltip>
-				<span class="price">¥{{item.zk_final_price}}</span>
+				<span class="price">券后价格￥{{item.zk_final_price}}元</span>
+					<span class="buy">领券购买</span>
+				
 			</div>
 		</div>
 
 
 
-			 <!-- <ul class="mui-table-view" >
-				<li class="mui-table-view-cell mui-media" v-for="article in articles" :key="article.id"  >
-					<router-link :to="'/article/' + article.articleSort +'/'+ article.id">
-						<img class="mui-media-object mui-pull-left" src="https://tvax2.sinaimg.cn/crop.0.15.750.750.180/8128de94ly8ff8j63qrkfj20ku0lpmxv.jpg">
-						<div class="mui-media-body">
-							<h1>{{article.title}}</h1>
-							<p class='mui-ellipsis'>
-								<span>{{article.content}}</span>
-                            </p>
-						</div>
-					</router-link> 
-				</li>
-
-			</ul> -->
-</div>
+	</div>
 </template>
 <script>
-
 export default {
      data(){
         return {
@@ -97,10 +67,8 @@ export default {
 			 articles:[],
 			 optimus_material_:[],
 			 input:'',
-			 copyContent:'',
-			dialogVisible: false,
-			
-
+			loading:true,	
+			self:this
         }
 
 	},
@@ -109,31 +77,28 @@ export default {
         this.optimus_material();
     },
 	methods:{
-		openDialog(item){
-			this.dialogVisible = true;
-			this.copyContent = '一键复制>打开淘宝，即可领取优惠券啦。。'+item.tbk_tpwd_create_response.data.model;
-		},
-		copyContent(){
-			this.optimus_material_
-		},
 		fanstoplist(){
 			
 		},
 		 getarticles(){
             this.$http.get('pagination/lunyu/1/10').then(result =>{
                 this.articles = result.body;
-            })
+		
+			})
 		},
 		optimus_material(){
+			this.loading=true
 			var data = {
-				"material_id": 0,
+				"material_id": 9660,
 				"page_no": 0,
 				"page_size": 10
 				};
 			var url = 'tbk/taobao_tbk_dg_optimus_material';
 			this.$http.post(url,JSON.stringify(data)).then(result =>{
 								this.optimus_material_ = result.body;
+								this.loading = false
                 console.log(this.optimus_material_);
+						
 						});
 
 		}
@@ -144,6 +109,17 @@ export default {
 </script>
 <style lang="scss">
 
+// 爆款文字格式
+.el-button.is-circle {
+    border-radius: 0%;
+    padding: 7px;
+}
+.el-button--warning {
+    color: #fff;
+    background-color: red;
+    border-color: red;
+}
+// 分类格式
 .mui-grid-view.mui-grid-9{
 	background: white;
 	border-top:0;
@@ -154,6 +130,8 @@ export default {
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell {
     width: 25%;
+	border-right: 1px solid white; 
+    border-bottom: 1px solid white; 
 }
 
 .goodsHeader .el-dialog__header{
@@ -194,7 +172,7 @@ export default {
 	display: inline-block;
 	width: 166px;
     padding: 10px;
-	height: 210px;
+	height: 230px;
 	cursor: pointer;
 }
 .img{
@@ -204,14 +182,13 @@ export default {
 .price{
 	position: absolute;
 	color: #f10215;
-	padding-left:50px;
 	top: 210px;
 }
-.el-icon-search{
-  	position: absolute;
-	top: 60px;
-	right: 20px;
-	color: #ccc;
+.buy{
+	position: absolute;
+	color: #f10215;
+	top: 210px;
+	right: 0px;
 }
 .goodsTitle{
 	position: absolute;

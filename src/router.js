@@ -8,12 +8,18 @@ import home_article from './components/home/article.vue';
 import articleInfo from './components/home/articleInfo.vue';
 import search from './components/home/search.vue';
 import pictures from './components/home/pictures.vue';
-import halfPrice from './components/home/shoppingList.vue';
+import girlsSkirt from './components/home/shoppingList.vue';
+import computer from './components/home/shoppingList.vue';
+import makeup from './components/home/shoppingList.vue';
+import underwear from './components/home/shoppingList.vue';
 
 // 3. 创建路由对象
 var router = new VueRouter({
   routes: [
-    {path:'/home/halfPrice',component:halfPrice},
+    {path:'/home/underwear',component:underwear},
+    {path:'/home/makeup',component:makeup},
+    {path:'/home/computer',component:computer},
+    {path:'/home/girlsSkirt',component:girlsSkirt},
     {path:'/home/article',component:home_article},
     {path:'/',component:Home},
     {path:'/home',component:Home},

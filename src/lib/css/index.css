@@ -88,3 +88,32 @@ body {
 .ta {
 	text-align: center;
 }
+/* 领取优惠券弹出框格式 */
+.el-message-box {
+    display: inline-block;
+	width: 300px;
+}
+.el-message-box__title {
+	font-size: 13px;
+}
+input, select, textarea {
+	font-size: 12px;
+}
+.el-button--primary {
+    color: #fff;
+    background-color: #ea0e0e !important;
+    border-color: #f5450b !important;
+}
+.el-message-box__message p {
+    margin: 0;
+	line-height: 24px;
+	border:1px solid red
+}
+
+/* 搜索框样式 */
+.el-icon-search{
+	position: absolute;
+  top: 60px;
+  right: 20px;
+  color: #ccc;
+}
