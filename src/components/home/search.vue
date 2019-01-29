@@ -3,6 +3,7 @@
        <el-input
 			placeholder="输入领取惠券的商品名称" 
             v-model="searchStr"		
+            autofocus=true
 			class="search">
   		</el-input>
 		<span class="el-icon-search" @click="search"></span>
@@ -60,16 +61,20 @@ export default {
     },
     methods:{
         search(){
+            if(this.searchStr===''){
+                return;
+            }
+
             this.loading = true
 			var data = {
 				"page_no": 1,
-				"page_size": 5,
+				"page_size": 10,
 				"q": this.searchStr
 				};
 			var url = 'tbk/taobao_tbk_dg_item_coupon_get';
 			this.$http.post(url,JSON.stringify(data)).then(result =>{
 								this.list = result.body;
-                console.log(this.optimus_material_);
+                // console.log(this.optimus_material_);
                 this.loading = false
 						});
         },

@@ -25,7 +25,7 @@ export default {
         getarticles(){
             this.$http.get('pagination/articleInfo/'+this.articleSort+'/'+this.id).then(result =>{
                 this.articleInfo = result.body;
-                console.log(this.articleInfo);
+                // console.log(this.articleInfo);
             })
         }
     }

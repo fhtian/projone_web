@@ -4,9 +4,10 @@
 		<el-col :span="24">
 			<div class="header">
 				<span class="title">
-						七彩祥云
+						有券
 				</span>
-				<a href="javascript:history.go(-1)" class="back el-icon-arrow-left">返回</a>
+				<span @click="goback" v-show="backShow"
+				><a  class="back el-icon-arrow-left">返回</a></span>
 			</div>
 		</el-col>
 	</el-row>
@@ -37,6 +38,31 @@
 </template>
 
 <script>
+export default {
+      data(){
+        return { 
+           backShow:true
+        }
+
+	},
+	methods:{
+		goback(){
+			//点击后退
+			this.$router.go(-1);
+		}
+	},
+	watch:{
+		"$route.path":function(newPath){
+			if(newPath==="/home"||newPath==="/"){
+				this.backShow=false 
+			}else{
+				this.backShow=true     
+			}	
+		}
+	}
+	}
+
+
 </script>
 
 

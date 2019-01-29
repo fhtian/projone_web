@@ -33,7 +33,7 @@ export default {
         getarticles(){
             this.$http.get('pagination/shijing/1/10').then(result =>{
                 this.articles = result.body;
-                console.log(this.articles);
+                // console.log(this.articles);
             })
         }
     }

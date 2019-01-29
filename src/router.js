@@ -21,7 +21,7 @@ var router = new VueRouter({
     {path:'/home/computer',component:computer},
     {path:'/home/girlsSkirt',component:girlsSkirt},
     {path:'/home/article',component:home_article},
-    {path:'/',component:Home},
+    {path:'/',component:Home,name:'Home'},
     {path:'/home',component:Home},
     {path:'/msg',component:Msg},
     {path:'/self',component:Self},

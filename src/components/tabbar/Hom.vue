@@ -91,13 +91,13 @@ export default {
 			var data = {
 				"material_id": 9660,
 				"page_no": 0,
-				"page_size": 10
+				"page_size": 50
 				};
 			var url = 'tbk/taobao_tbk_dg_optimus_material';
 			this.$http.post(url,JSON.stringify(data)).then(result =>{
 								this.optimus_material_ = result.body;
 								this.loading = false
-                console.log(this.optimus_material_);
+                // console.log(this.optimus_material_);
 						
 						});
 

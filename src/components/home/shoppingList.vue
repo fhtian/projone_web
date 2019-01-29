@@ -67,16 +67,16 @@ export default {
 			var data = {
 				"material_id": this.material_id,
 				"page_no": 0,
-				"page_size": 10
+				"page_size": 50
 				};
 			var url = 'tbk/taobao_tbk_dg_optimus_material';
 			this.$http.post(url,JSON.stringify(data)).then(result =>{
                 this.shoppList = result.body;
                 this.loading = false
-                console.log(this.shoppList);
-                console.log(this.$route.params.path);
-                console.log( this.$route.query.gid);
-                console.log(this.$route.fullPath)
+                // console.log(this.shoppList);
+                // console.log(this.$route.params.path);
+                // console.log( this.$route.query.gid);
+                // console.log(this.$route.fullPath)
 				});
 
         },
@@ -88,7 +88,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .buy{
-	position: absolute;
 	color: #f10215;
 	top: 210px;
 	right: 0px;

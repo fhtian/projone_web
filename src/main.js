@@ -25,9 +25,9 @@ Vue.prototype.Axios = Axios;    //全局注册，使用方法为:this.$axios
 
 
 //设置请求根路径
-// Vue.http.options.root='https://www.tcjfh.cn';
+Vue.http.options.root='https://www.tcjfh.cn';
 // Vue.http.options.root='http://localhost:8080';
-Vue.http.options.root='https://localhost:40000';
+// Vue.http.options.root='https://localhost:40000';
 import { Swipe, SwipeItem } from 'mint-ui';
 
 Vue.component(Swipe.name, Swipe);
@@ -40,6 +40,16 @@ import VueClipboard from 'vue-clipboard2';
 //注册到vue原型上
 // Vue.prototype.clipboard = VueClipboard;
 Vue.use(VueClipboard)
+
+
+// Vue.directive('focus', {
+//     // 当被绑定的元素插入到 DOM 中时……
+//     inserted: function (el) {
+//       // 聚焦元素
+//       el.focus()
+//     }
+//   }) 
+
 
 
 import { Header } from 'mint-ui';

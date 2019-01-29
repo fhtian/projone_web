@@ -1,9 +1,8 @@
 <script type="text/javascript">
 
     const prefix_url='https://www.tcjfh.cn/';
-    let self = this
+    let self = this;
     function  openDialog_(msg,self){
-
        self.$confirm(msg, '一键复制>打开淘宝APP，领取优惠券', {
           distinguishCancelAndClose: true,
           confirmButtonText: '一键复制吱口令',
@@ -11,7 +10,7 @@
           showCancelButton:false
         })
           .then(() => {
-            console.log(msg);
+            // console.log(msg);
             self.$copyText(msg);
             self.$message({
               type: 'info',
@@ -33,18 +32,21 @@
     function  copyContent(msg,self) {
         self.$copyText(msg).then(function (e) {
           alert('Copied')
-          console.log(e)
+          // console.log(e)
         }, function (e) {
           alert('Can not copy')
-          console.log(e)
+          // console.log(e)
         })
       
     }
     
+
+
+
     
     export default {
        prefix_url,
-       openDialog_
+       openDialog_,
     }
     
 
