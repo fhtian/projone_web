@@ -3,10 +3,12 @@
        <el-input
 			placeholder="输入领取惠券的商品名称" 
             v-model="searchStr"		
-            autofocus=true
-			class="search">
+			class="search"
+            @focus="changeValue">
+            <!-- <template slot="append">搜索</template> -->
+            <button slot="append" @click="search" class="searchBtn" v-show="isShowBtn">搜索</button>
   		</el-input>
-		<span class="el-icon-search" @click="search"></span>
+          
         <div >
            <template>
                  <el-table
@@ -21,7 +23,7 @@
                             </template>
                         </el-table-column>
                         <el-table-column
-                        width="180">
+                        width="230">
                             <template slot-scope="scope">
                                 <el-popover trigger="hover" placement="top">
                                 <div slot="reference" class="name-wrapper">
@@ -56,15 +58,18 @@ export default {
             searchStr: '',
             list:[],
             loading:false,
-            self:this	
+            self:this	,
+            isShowBtn:false,
         }
     },
     methods:{
+        changeValue(){
+            this.isShowBtn=true
+        },
         search(){
             if(this.searchStr===''){
                 return;
             }
-
             this.loading = true
 			var data = {
 				"page_no": 1,
@@ -83,6 +88,26 @@ export default {
 }
 </script>
 <style lang="scss" >
+//   .el-select .el-input {
+//     width: 130px;
+//   }
+//   .input-with-select .el-input-group__prepend {
+//     background-color: #fff;
+//   }
+.el-input-group__append{
+    padding:0;
+    
+}
+.search input[type=text]{
+    margin-bottom:0;
+}
+.searchBtn{
+    width:80px;
+    padding:9px 12px;
+    background:#f10215;
+    color:white;
+    border:1px solid #f10215;
+}
 
 img {
     width: 100%;
