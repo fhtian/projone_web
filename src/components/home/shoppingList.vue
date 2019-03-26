@@ -62,7 +62,7 @@ export default {
             }else  if(this.$route.fullPath==='/home/makeup'){
                 this.material_id = 9653;
             }else  if(this.$route.fullPath==='/home/underwear'){
-                this.material_id = 9642;
+                this.material_id = 13373;
             }
 			var data = {
 				"material_id": this.material_id,
