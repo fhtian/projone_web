@@ -15,7 +15,7 @@
                     :data="list"
                     style="width: 100%">
                         <el-table-column
-                        width="80">
+                        width="75">
                             <template slot-scope="scope">
                                 <span style="margin-left: 10px">
                                 <img :src="scope.row.pict_url">
@@ -23,15 +23,13 @@
                             </template>
                         </el-table-column>
                         <el-table-column
-                        width="230">
+                        width="200">
                             <template slot-scope="scope">
-                                <el-popover trigger="hover" placement="top">
                                 <div slot="reference" class="name-wrapper">
                                    <p>{{scope.row.title}}</p>
-                                   <p>券后价￥{{scope.row.zk_final_price}}</p>
-                                   <p>{{scope.row.coupon_info}} 剩余:{{scope.row.coupon_remain_count}}张</p>
+                                   <p>券后价￥{{scope.row.zk_final_price}} &nbsp;&nbsp;&nbsp;&nbsp; {{scope.row.coupon_info}}</p>
+                                   <p>{{scope.row.shop_title}} &nbsp;&nbsp;&nbsp;&nbsp; 销量:{{scope.row.volume}}</p>
                                 </div>
-                                </el-popover>
                             </template>
                         </el-table-column>
                         <el-table-column >
